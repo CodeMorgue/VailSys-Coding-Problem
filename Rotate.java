@@ -1,4 +1,5 @@
 // class Rotate contains code to rotate an integer array n values to the left
+import java.util.InputMismatchException;
 import java.util.Scanner; // Import the scanner class to obtain user input
 
 public class Rotate {
@@ -6,9 +7,7 @@ public class Rotate {
     // Rotate an array n positions to the left
     // Time Complexity: O(N * ARRAY_SIZE)
     // Space Complexity: O(1)
-    public void rotateLeft(int arr[], int n) {
-        // Store the length of the given array
-        final int array_size = arr.length;
+    public void rotateLeft(int arr[], int n, int array_size) {
 
         for (int i = 0; i < n; i++){
             rotateLeftByOne(arr, array_size);
@@ -49,15 +48,72 @@ public class Rotate {
         Scanner scanner = new Scanner(System.in);
 
         // Prompt the user to enter an array and rotation value
-        do {
-                System.out.println("Please enter an array value");
-                String userArrayResponse = scanner.nextLine();
-        } while(true);
-        
-        
-        System.out.println("Please enter the number of positions to rotate the array to the left: ");
-        int userRotationResponse = scanner.nextInt();
+        System.out.println(">>> Please enter the integer length of your array:");
+        int userArraySize = 0;
 
-        System.out.println("The rotated array is: " + result.rotateLeft(userArrayResponse, userRotationResponse));
+        do {
+            try {
+                userArraySize = scanner.nextInt();
+                if (userArraySize <= 0) {
+                    throw new IllegalArgumentException();
+                }
+                else {
+                    break;
+                }
+            }
+            catch(InputMismatchException|IllegalArgumentException e){
+                System.err.println(">>> Not a valid integer. Please try again");
+                scanner.nextLine();
+            }
+        }
+        while(true);
+
+        int arr[] = new int[userArraySize];
+        int i = 0;
+        do {
+            try {
+                System.out.println(">>> Please enter integers one at a time:");
+                while (i < userArraySize){
+                    int userArrayResponse = scanner.nextInt();
+                    if (userArrayResponse < 0){
+                        throw new IllegalArgumentException();
+                    }
+                    arr[i] = userArrayResponse;
+                    i += 1;
+                }
+                
+                break;
+            }
+            catch(InputMismatchException|IllegalArgumentException e){
+                System.out.println(">>> Please enter only integer values");
+                scanner.nextLine();
+            }
+        }
+        while(true);
+        
+        int userRotationResponse = 0;
+          System.out.println(">>> Please enter the number of positions to rotate the array to the left: ");
+
+        do{
+            try{
+                userRotationResponse = scanner.nextInt();
+                if (userRotationResponse < 0) {
+                    throw new IllegalArgumentException();
+                }
+                else {
+                    break;
+                }
+            }
+            catch(InputMismatchException|IllegalArgumentException e){
+                System.err.println(">>> Not a valid integer. Please try again");
+                scanner.nextLine();
+            }
+        }
+        while(true);
+
+        System.out.println(">>> The rotated array is: ");
+        result.rotateLeft(arr, userRotationResponse, userArraySize);
+
+        scanner.close();
         }  
     }
