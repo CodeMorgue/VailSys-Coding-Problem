@@ -1,8 +1,11 @@
+
 // class Rotate contains code to rotate an integer array n values to the left
 import java.util.InputMismatchException;
 import java.util.Scanner; // Import the scanner class to obtain user input
 
 public class Rotate {
+
+    public int objArray[];
 
     // Rotate an array n positions to the left
     // Time Complexity: O(N * ARRAY_SIZE)
@@ -12,7 +15,7 @@ public class Rotate {
         for (int i = 0; i < n; i++){
             rotateLeftByOne(arr, array_size);
         }
-        
+        this.objArray = arr;
         printArray(arr, array_size);
     }
 
@@ -28,14 +31,17 @@ public class Rotate {
 
         // Set the final equal to the previous first value
         arr[i] = tempVal;
+        this.objArray = arr;
     }
 
     // Print the rotated array
-    public void printArray(int arr[], int array_size) {
-
+    public String printArray(int arr[], int array_size) {
+        String result = "";
         for (int i = 0; i < array_size; i++){
             System.out.print(arr[i] + ", ");
+            result += arr[i] + ", ";
         }
+        return result;
     }
 
     // Driver code
@@ -61,6 +67,7 @@ public class Rotate {
                     break;
                 }
             }
+            // Gracefully handle non-positive and non-integers (ie. doubles, floats, negatives, strings)
             catch(InputMismatchException|IllegalArgumentException e){
                 System.err.println(">>> Not a valid integer. Please try again");
                 scanner.nextLine();
@@ -81,9 +88,9 @@ public class Rotate {
                     arr[i] = userArrayResponse;
                     i += 1;
                 }
-                
                 break;
             }
+            // Gracefully handle non-positive and non-integers (ie. doubles, floats, negatives, strings)
             catch(InputMismatchException|IllegalArgumentException e){
                 System.out.println(">>> Please enter only integer values");
                 scanner.nextLine();
@@ -104,6 +111,7 @@ public class Rotate {
                     break;
                 }
             }
+            // Gracefully handle non-positive and non-integers (ie. doubles, floats, negatives, strings)
             catch(InputMismatchException|IllegalArgumentException e){
                 System.err.println(">>> Not a valid integer. Please try again");
                 scanner.nextLine();
