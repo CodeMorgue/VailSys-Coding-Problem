@@ -14,6 +14,5 @@ Open the project folder in VSCode (with necessary extensions) or IntelliJ, and r
 well as accept user input. The file may also be compiled individually and run using ```javac Rotate.java``` then ```java Rotate```.
 
 ## Running the Tests
-With the 'Test Runner for Java' extension installed, navigate to the 'RotateTest.java' file. Tests can be run individually using the run buttons aligned
-with each method declaration (shown below).
-![image](https://github.com/CodeMorgue/VailSys-Coding-Problem/assets/93951201/e5a2af16-7826-4702-9c20-20471d3e1ecb)
+With the 'Test Runner for Java' extension installed, navigate to the 'RotateTest.java' file. Tests can be run individually using the green run buttons aligned
+with each method declaration.
