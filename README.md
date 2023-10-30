@@ -11,7 +11,8 @@ The project may also be run using the IntelliJ IDE with the proper SDK installed
 
 ## Running the Program
 Open the project folder in VSCode (with necessary extensions) or IntelliJ, and run the 'Rotate.java' file using the debugger. The program will print instructions to the console as
-well as accept user input.
+well as accept user input. The files may also be compiled individually and run using ```bash
+javac```.
 
 ## Running the Tests
 With the 'Test Runner for Java' extension installed, navigate to the 'RotateTest.java' file. Tests can be run individually using the run buttons aligned
